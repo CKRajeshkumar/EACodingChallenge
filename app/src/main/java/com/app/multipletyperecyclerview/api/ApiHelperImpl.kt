@@ -8,6 +8,6 @@ class ApiHelperImpl @Inject constructor(
     private val apiService: ApiService
 ): ApiHelper {
 
-    override suspend fun getEmployees(): Response<List<Root>>  = apiService.getEmployees()
+    override suspend fun getFestivals(): Response<List<Root>>  = apiService.getFestivals()
 
 }

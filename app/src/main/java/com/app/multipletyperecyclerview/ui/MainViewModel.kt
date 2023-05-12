@@ -22,12 +22,12 @@ class MainViewModel @Inject constructor(
         get() = _res
 
     init {
-        getEmployees()
+        getFestivals()
     }
 
-    private fun getEmployees()  = viewModelScope.launch {
+    private fun getFestivals()  = viewModelScope.launch {
         _res.postValue(Resource.loading(null))
-        mainRepository.getEmployee().let {
+        mainRepository.getFestival().let {
             if (it.isSuccessful){
                 _res.postValue(Resource.success(it.body()))
             }else{

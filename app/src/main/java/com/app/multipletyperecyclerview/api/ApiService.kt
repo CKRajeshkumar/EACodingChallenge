@@ -7,7 +7,7 @@ import retrofit2.http.GET
 interface ApiService{
 
     @GET("festivals")
-    suspend fun getEmployees():Response<List<Root>>
+    suspend fun getFestivals():Response<List<Root>>
 
 
 }

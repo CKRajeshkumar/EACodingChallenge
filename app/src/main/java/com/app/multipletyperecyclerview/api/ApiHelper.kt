@@ -5,6 +5,6 @@ import retrofit2.Response
 
 interface ApiHelper {
 
-    suspend fun getEmployees(): Response<List<Root>>
+    suspend fun getFestivals(): Response<List<Root>>
 
 }
