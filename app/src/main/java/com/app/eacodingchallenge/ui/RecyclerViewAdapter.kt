@@ -1,4 +1,4 @@
-package com.app.multipletyperecyclerview.ui
+package com.app.eacodingchallenge.ui
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.app.multipletyperecyclerview.R
-import com.app.multipletyperecyclerview.models.Root
+import com.app.eacodingchallenge.R
+import com.app.eacodingchallenge.models.Root
 
 class RecyclerViewAdapter(
     private val context: Context,
-    private var list: List<Pair<Root, String?>>
+    private var list: List<Root>
 ) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -25,7 +25,7 @@ class RecyclerViewAdapter(
         var message: TextView = itemView.findViewById(R.id.mainTitle)
         fun bind(position: Int) {
             val recyclerViewModel = list[position]
-            message.text = recyclerViewModel.second
+            message.text = recyclerViewModel.bands.first().recordLabel
         }
     }
 
@@ -36,9 +36,9 @@ class RecyclerViewAdapter(
         fun bind(position: Int) {
             val recyclerViewModel = list[position]
             message.text =
-                recyclerViewModel.first.displayName
-            message2.text = recyclerViewModel.first.name
-            if (recyclerViewModel.first.name == null || recyclerViewModel.first.name?.isEmpty() == true) {
+                recyclerViewModel.bands.first().name
+            message2.text = recyclerViewModel.name
+            if (recyclerViewModel.name.isNullOrEmpty()) {
                 message2.visibility = View.GONE
             } else {
                 message2.visibility = View.VISIBLE
@@ -62,7 +62,7 @@ class RecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        if (list[position].first.viewType == VIEW_TYPE_ONE) {
+        if (list[position].viewType == VIEW_TYPE_ONE) {
             (holder as View1ViewHolder).bind(position)
         } else {
             (holder as View2ViewHolder).bind(position)
@@ -70,10 +70,10 @@ class RecyclerViewAdapter(
     }
 
     override fun getItemViewType(position: Int): Int {
-        return list[position].first.viewType
+        return list[position].viewType
     }
 
-    fun updateList(newList: List<Pair<Root, String?>>) {
+    fun updateList(newList: List<Root>) {
         list = newList
         notifyDataSetChanged()
     }

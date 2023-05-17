@@ -1,4 +1,4 @@
-package com.app.multipletyperecyclerview
+package com.app.eacodingchallenge
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

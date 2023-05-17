@@ -6,13 +6,16 @@ plugins {
 }
 
 android {
-    namespace 'com.app.multipletyperecyclerview'
+    namespace 'com.app.eacodingchallenge'
     compileSdk 33
     kapt {
         correctErrorTypes = true
     }
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
 
-    buildFeatures{
+    buildFeatures {
         dataBinding = true
         viewBinding = true
     }
@@ -21,12 +24,11 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     defaultConfig {
-        applicationId "com.app.multipletyperecyclerview"
+        applicationId "com.app.eacodingchallenge"
         minSdk 24
         targetSdk 33
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -54,6 +56,12 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    androidTestImplementation("androidx.test:core:3.5.1")
+
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation("androidx.test:runner:3.5.1")
+    androidTestImplementation("androidx.test:rules:1.5.0")
+
 
     implementation("com.google.dagger:hilt-android:2.44.2")
     kapt("com.google.dagger:hilt-android-compiler:2.44.2")
@@ -68,5 +76,14 @@ dependencies {
     implementation 'androidx.activity:activity-ktx:1.7.1'
     implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
 
+
+    testImplementation 'org.mockito:mockito-core:4.2.0'
+    testImplementation 'io.mockk:mockk:1.12.2'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4'
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.0'
+    testImplementation("com.google.dagger:hilt-android-testing:2.44")
+    testImplementation "org.mockito:mockito-inline:3.11.2"
 
 }

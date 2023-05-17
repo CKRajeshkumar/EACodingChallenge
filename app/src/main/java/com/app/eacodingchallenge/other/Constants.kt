@@ -1,4 +1,4 @@
-package com.app.multipletyperecyclerview.other
+package com.app.eacodingchallenge.other
 
 object Constants {
 

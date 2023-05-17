@@ -1,10 +1,10 @@
-package com.app.multipletyperecyclerview.di
+package com.app.eacodingchallenge.di
 
- import com.app.multipletyperecyclerview.BuildConfig
- import com.app.multipletyperecyclerview.api.ApiHelper
-import com.app.multipletyperecyclerview.api.ApiHelperImpl
-import com.app.multipletyperecyclerview.api.ApiService
-import com.app.multipletyperecyclerview.other.Constants
+import com.app.eacodingchallenge.BuildConfig
+import com.app.eacodingchallenge.api.ApiHelper
+import com.app.eacodingchallenge.api.ApiHelperImpl
+import com.app.eacodingchallenge.api.ApiService
+import com.app.eacodingchallenge.other.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,22 +15,23 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
+
 @Module
 @InstallIn(SingletonComponent::class)
-object AppModule{
+object AppModule {
 
     @Provides
     fun provideBaseUrl() = Constants.BASE_URL
 
     @Singleton
     @Provides
-    fun provideOkHttpClient() = if (BuildConfig.DEBUG){
-        val loggingInterceptor =HttpLoggingInterceptor()
+    fun provideOkHttpClient() = if (BuildConfig.DEBUG) {
+        val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
             .build()
-    }else{
+    } else {
         OkHttpClient
             .Builder()
             .build()
@@ -38,11 +39,12 @@ object AppModule{
 
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient, BASE_URL:String): Retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
-        .baseUrl(BASE_URL)
-        .client(okHttpClient)
-        .build()
+    fun provideRetrofit(okHttpClient: OkHttpClient, BASE_URL: String): Retrofit =
+        Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(BASE_URL)
+            .client(okHttpClient)
+            .build()
 
     @Provides
     @Singleton

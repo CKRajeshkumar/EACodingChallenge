@@ -1,6 +1,6 @@
-package com.app.multipletyperecyclerview.api
+package com.app.eacodingchallenge.api
 
-import com.app.multipletyperecyclerview.models.Root
+import com.app.eacodingchallenge.models.Root
 import retrofit2.Response
 import javax.inject.Inject
 
