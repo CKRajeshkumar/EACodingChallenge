@@ -1,14 +1,18 @@
 # EACodingChallenge
 
-This app will display the festival data from api. 
+The project is an Android app which is listing out music festival data.
 
-Band names are sorted using recordLabel attribute.
+It contains band record label and band list under the record label.
 
-Band names are displyed alphapetical order.
+All entries are sorted alphabetically.
 
-This app following the MVVM patern with Hilt dependency injection.
+This app uses MVVM (Model View View-Model) architecture.
 
-App using the Retrofit to get the festival data from Api.
-
-RecyclerView is used to list out the festival list.
-
+Build With
+Kotlin - Programming language for Android
+Hilt-Dagger - Standard library to incorporate Dagger dependency injection into an Android application.
+Retrofit - A type-safe HTTP client for Android and Java.
+Coroutines - For asynchronous
+LiveData - Data objects that notify views when the underlying database changes.
+ViewModel - Stores UI-related data that isn't destroyed on UI changes.
+ViewBinding - Generates a binding class for each XML layout file present in that module and allows you to more easily write code that interacts with views.
