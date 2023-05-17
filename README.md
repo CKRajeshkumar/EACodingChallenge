@@ -8,7 +8,7 @@ All entries are sorted alphabetically.
 
 This app uses MVVM (Model View View-Model) architecture.
 
-Build With
+# Build With
 Kotlin - Programming language for Android
 Hilt-Dagger - Standard library to incorporate Dagger dependency injection into an Android application.
 Retrofit - A type-safe HTTP client for Android and Java.
